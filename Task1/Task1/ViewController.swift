@@ -13,7 +13,7 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
 
     @IBOutlet weak var tableView: UITableView!
     
-    var NAMEList:[Name] = [Name]()
+    var nameList:[Name] = [Name]()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -21,30 +21,32 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         tableView.delegate = self
         tableView.dataSource = self
         
-        NAMEList.append(Name(data: (1,"Shiro")))
-        NAMEList.append(Name(data: (2,"Lina")))
-        NAMEList.append(Name(data: (3,"Wakaba")))
-        NAMEList.append(Name(data: (4,"Rin")))
+        nameList.append(Name(data: (1,"Shiro")))
+        nameList.append(Name(data: (2,"Lina")))
+        nameList.append(Name(data: (3,"Wakaba")))
+        nameList.append(Name(data: (4,"Rin")))
     }
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return NAMEList.count
+        return nameList.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        
         //セルを取得する
         let cell: UITableViewCell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath)
+        
         //セルに表示する値を固定する
-        cell.textLabel!.text = NAMEList[indexPath.row].name
+        cell.textLabel!.text = nameList[indexPath.row].name
         return cell
     }
     
     @IBAction func sortByName(_ sender: Any) {
-        NAMEList.sort{$0.name < $1.name}
+        nameList.sort{$0.name < $1.name}
         tableView.reloadData()
     }
     
     @IBAction func sortById(_ sender: Any) {
-        NAMEList.sort{$0.id < $1.id}
+        nameList.sort{$0.id < $1.id}
         tableView.reloadData()
     }
     
