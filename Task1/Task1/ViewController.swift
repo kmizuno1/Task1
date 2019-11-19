@@ -21,10 +21,13 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         tableView.delegate = self
         tableView.dataSource = self
         
-        nameList.append(Name(id: 1,name: "Shiro"))
-        nameList.append(Name(id: 2,name: "Lina"))
-        nameList.append(Name(id: 3,name: "Wakaba"))
-        nameList.append(Name(id: 4,name: "Rin"))
+        nameList += [
+            Name(id: 1,name: "Shiro"),
+            Name(id: 2,name: "Lina"),
+            Name(id: 3,name: "Wakaba"),
+            Name(id: 4,name: "Rin")
+        ]
+        
     }
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return nameList.count
