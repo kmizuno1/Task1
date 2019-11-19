@@ -8,7 +8,7 @@
 
 import UIKit
 
-class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSource{
+class ViewController: UIViewController, UITableViewDataSource{
 
 
     @IBOutlet weak var tableView: UITableView!
@@ -18,7 +18,7 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        tableView.delegate = self
+        //MARK: - UITableViewDataSource
         tableView.dataSource = self
         
         nameList += [
@@ -52,7 +52,6 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         nameList.sort{$0.Id < $1.Id}
         tableView.reloadData()
     }
-    
 
 
 }
