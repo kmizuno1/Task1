@@ -61,7 +61,8 @@ class ViewController: UIViewController, UITableViewDataSource{
 
 }
 
-//カスタムクラスを作成
+//MARK: - カスタムクラスを作成
+
 class Name{
     let Id:Int
     let Name:String
