@@ -20,27 +20,51 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="cell" id="sib-07-udT">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="NameCell" id="sib-07-udT" customClass="NameCell" customModule="Task1" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="28" width="414" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="sib-07-udT" id="bsz-nG-Ks0">
                                             <rect key="frame" x="0.0" y="0.0" width="414" height="44"/>
                                             <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2wg-fh-8BO">
+                                                    <rect key="frame" x="26" y="12" width="42" height="22"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="r2e-4c-VhQ">
+                                                    <rect key="frame" x="168" y="12" width="42" height="20"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstItem="r2e-4c-VhQ" firstAttribute="leading" secondItem="2wg-fh-8BO" secondAttribute="trailing" constant="100" id="IPg-j1-417"/>
+                                                <constraint firstItem="r2e-4c-VhQ" firstAttribute="top" secondItem="bsz-nG-Ks0" secondAttribute="topMargin" constant="1" id="Smw-zB-z8a"/>
+                                                <constraint firstItem="2wg-fh-8BO" firstAttribute="bottom" secondItem="bsz-nG-Ks0" secondAttribute="bottomMargin" constant="1" id="Tbi-pV-PRM"/>
+                                                <constraint firstItem="2wg-fh-8BO" firstAttribute="leading" secondItem="bsz-nG-Ks0" secondAttribute="leadingMargin" constant="10" id="Tzl-tP-oXT"/>
+                                                <constraint firstAttribute="bottomMargin" secondItem="r2e-4c-VhQ" secondAttribute="bottom" constant="1" id="U5v-Xj-q10"/>
+                                                <constraint firstItem="2wg-fh-8BO" firstAttribute="top" secondItem="bsz-nG-Ks0" secondAttribute="topMargin" constant="1" id="xhv-kR-Evr"/>
+                                            </constraints>
                                         </tableViewCellContentView>
+                                        <connections>
+                                            <outlet property="label_id" destination="2wg-fh-8BO" id="rGX-nD-aWA"/>
+                                            <outlet property="label_name" destination="r2e-4c-VhQ" id="IOX-vN-PLR"/>
+                                        </connections>
                                     </tableViewCell>
                                 </prototypes>
                             </tableView>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Del-MB-Ed0">
-                                <rect key="frame" x="14" y="100" width="58" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Del-MB-Ed0">
+                                <rect key="frame" x="10" y="94" width="58" height="30"/>
                                 <state key="normal" title="NAME順"/>
                                 <connections>
                                     <action selector="sortByName:" destination="BYZ-38-t0r" eventType="touchUpInside" id="bTE-l5-B8a"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="LNt-oD-YAY">
-                                <rect key="frame" x="113" y="100" width="30" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="LNt-oD-YAY">
+                                <rect key="frame" x="168" y="94" width="30" height="30"/>
                                 <state key="normal" title="ID順"/>
                                 <connections>
                                     <action selector="sortById:" destination="BYZ-38-t0r" eventType="touchUpInside" id="kvj-i3-dOQ"/>
@@ -48,6 +72,12 @@
                             </button>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <constraints>
+                            <constraint firstItem="Del-MB-Ed0" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="10" id="1DJ-x1-jvn"/>
+                            <constraint firstItem="Del-MB-Ed0" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="50" id="6SM-Tu-mSB"/>
+                            <constraint firstItem="LNt-oD-YAY" firstAttribute="leading" secondItem="Del-MB-Ed0" secondAttribute="trailing" constant="100" id="nPK-ha-RVQ"/>
+                            <constraint firstItem="LNt-oD-YAY" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="50" id="xUH-ER-EXj"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
                     <connections>

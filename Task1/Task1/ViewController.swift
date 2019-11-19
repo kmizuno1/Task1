@@ -18,7 +18,6 @@ class ViewController: UIViewController, UITableViewDataSource{
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        //MARK: - UITableViewDataSource
         tableView.dataSource = self
         
         nameList += [
@@ -29,6 +28,9 @@ class ViewController: UIViewController, UITableViewDataSource{
         ]
         
     }
+    
+    //MARK: - UITableViewDataSource
+    
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return nameList.count
     }
@@ -36,18 +38,21 @@ class ViewController: UIViewController, UITableViewDataSource{
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
         //セルを取得する
-        let cell: UITableViewCell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath)
+        let nameCell: NameCell = tableView.dequeueReusableCell(withIdentifier: "NameCell", for: indexPath) as! NameCell
         
         //セルに表示する値を固定する
-        cell.textLabel!.text = nameList[indexPath.row].Name
-        return cell
+        nameCell.label_id.text = String(nameList[indexPath.row].Id)
+        nameCell.label_name.text = nameList[indexPath.row].Name
+        return nameCell
     }
     
+    //name昇順でソート
     @IBAction func sortByName(_ sender: Any) {
         nameList.sort{$0.Name < $1.Name}
         tableView.reloadData()
     }
     
+    //id昇順でソート
     @IBAction func sortById(_ sender: Any) {
         nameList.sort{$0.Id < $1.Id}
         tableView.reloadData()
@@ -56,6 +61,7 @@ class ViewController: UIViewController, UITableViewDataSource{
 
 }
 
+//カスタムクラスを作成
 class Name{
     let Id:Int
     let Name:String
