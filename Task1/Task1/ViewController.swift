@@ -21,10 +21,10 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         tableView.delegate = self
         tableView.dataSource = self
         
-        nameList.append(Name(data: (1,"Shiro")))
-        nameList.append(Name(data: (2,"Lina")))
-        nameList.append(Name(data: (3,"Wakaba")))
-        nameList.append(Name(data: (4,"Rin")))
+        nameList.append(Name(id: 1,name: "Shiro"))
+        nameList.append(Name(id: 2,name: "Lina"))
+        nameList.append(Name(id: 3,name: "Wakaba"))
+        nameList.append(Name(id: 4,name: "Rin"))
     }
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return nameList.count
@@ -36,17 +36,17 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         let cell: UITableViewCell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath)
         
         //セルに表示する値を固定する
-        cell.textLabel!.text = nameList[indexPath.row].name
+        cell.textLabel!.text = nameList[indexPath.row].Name
         return cell
     }
     
     @IBAction func sortByName(_ sender: Any) {
-        nameList.sort{$0.name < $1.name}
+        nameList.sort{$0.Name < $1.Name}
         tableView.reloadData()
     }
     
     @IBAction func sortById(_ sender: Any) {
-        nameList.sort{$0.id < $1.id}
+        nameList.sort{$0.Id < $1.Id}
         tableView.reloadData()
     }
     
@@ -54,12 +54,12 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
 
 }
 
-class Name:NSObject {
-    var id:Int
-    var name:String
-    init(data:(Int,String)) {
-        id = data.0
-        name = data.1
+class Name{
+    let Id:Int
+    let Name:String
+    init(id:Int,name:String) {
+        Id = id
+        Name = name
     }
 }
 
