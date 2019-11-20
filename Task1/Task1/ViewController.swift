@@ -41,20 +41,20 @@ class ViewController: UIViewController, UITableViewDataSource{
         let nameCell: NameCell = tableView.dequeueReusableCell(withIdentifier: "NameCell", for: indexPath) as! NameCell
         
         //セルに表示する値を固定する
-        nameCell.label_id.text = String(nameList[indexPath.row].Id)
-        nameCell.label_name.text = nameList[indexPath.row].Name
+        nameCell.label_id.text = String(nameList[indexPath.row].id)
+        nameCell.label_name.text = nameList[indexPath.row].name
         return nameCell
     }
     
     //name昇順でソート
     @IBAction func sortByName(_ sender: Any) {
-        nameList.sort{$0.Name < $1.Name}
+        nameList.sort{$0.name < $1.name}
         tableView.reloadData()
     }
     
     //id昇順でソート
     @IBAction func sortById(_ sender: Any) {
-        nameList.sort{$0.Id < $1.Id}
+        nameList.sort{$0.id < $1.id}
         tableView.reloadData()
     }
 
@@ -64,11 +64,11 @@ class ViewController: UIViewController, UITableViewDataSource{
 //MARK: - カスタムクラスを作成
 
 class Name{
-    let Id:Int
-    let Name:String
+    let id:Int
+    let name:String
     init(id:Int,name:String) {
-        Id = id
-        Name = name
+        self.id = id
+        self.name = name
     }
 }
 
