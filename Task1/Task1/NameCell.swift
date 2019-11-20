@@ -12,6 +12,7 @@ public class NameCell: UITableViewCell {
 
     @IBOutlet weak var label_id: UILabel!
     @IBOutlet weak var label_name: UILabel!
+    @IBOutlet weak var label_armStrength: UILabel!
     
 
 

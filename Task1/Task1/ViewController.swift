@@ -21,10 +21,10 @@ class ViewController: UIViewController, UITableViewDataSource{
         tableView.dataSource = self
         
         nameList += [
-            Name(id: 1,name: "Shiro"),
-            Name(id: 2,name: "Lina"),
-            Name(id: 3,name: "Wakaba"),
-            Name(id: 4,name: "Rin")
+            Name(id: 1,name: "Shiro", armStrength: 5),
+            Name(id: 2,name: "Lina", armStrength: 20),
+            Name(id: 3,name: "Wakaba", armStrength: 1),
+            Name(id: 4,name: "Rin", armStrength: 1000)
         ]
         
     }
@@ -43,6 +43,7 @@ class ViewController: UIViewController, UITableViewDataSource{
         //セルに表示する値を固定する
         nameCell.label_id.text = String(nameList[indexPath.row].id)
         nameCell.label_name.text = nameList[indexPath.row].name
+        nameCell.label_armStrength.text = String(nameList[indexPath.row].armStrength)
         return nameCell
     }
     
@@ -58,7 +59,12 @@ class ViewController: UIViewController, UITableViewDataSource{
         tableView.reloadData()
     }
 
-
+    //腕力降順でソート
+    @IBAction func sortByArmStrength(_ sender: Any) {
+        nameList.sort{$1.armStrength < $0.armStrength}
+        tableView.reloadData()
+    }
+    
 }
 
 //MARK: - カスタムクラスを作成
@@ -66,9 +72,11 @@ class ViewController: UIViewController, UITableViewDataSource{
 class Name{
     let id:Int
     let name:String
-    init(id:Int,name:String) {
+    let armStrength:Int
+    init(id:Int,name:String,armStrength:Int) {
         self.id = id
         self.name = name
+        self.armStrength = armStrength
     }
 }
 
